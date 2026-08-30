@@ -1,0 +1,325 @@
+{
+  "entities": {
+    "user": {
+      "title": "User Profile",
+      "description": "Details of the student, teacher, or admin account.",
+      "type": "object",
+      "properties": {
+        "uid": { "type": "string" },
+        "email": { "type": "string" },
+        "displayName": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "role": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "targetExam": { "type": "string" },
+        "focusHours": { "type": "number" },
+        "completedChapters": { "type": "array" },
+        "hasReadTopperBlueprint": { "type": "boolean" },
+        "enrollmentNumber": { "type": "string" },
+        "aadhaarStatus": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["uid", "email", "role", "createdAt"]
+    },
+    "enquiry": {
+      "title": "Admissions Enquiry",
+      "description": "Inquiry submitted by potential student or parent.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "phone": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "course": { "type": "string" },
+        "message": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "name", "phone", "studentClass", "course", "submittedAt", "status"]
+    },
+    "scholarship": {
+      "title": "Scholarship Application",
+      "description": "Application form for board-level exam scholarship.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentName": { "type": "string" },
+        "parentName": { "type": "string" },
+        "phone": { "type": "string" },
+        "email": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "schoolName": { "type": "string" },
+        "board": { "type": "string" },
+        "previousScore": { "type": "string" },
+        "familyIncome": { "type": "string" },
+        "courseOfInterest": { "type": "string" },
+        "achievements": { "type": "string" },
+        "calculatedConcession": { "type": "number" },
+        "submittedAt": { "type": "string" },
+        "status": { "type": "string" },
+        "notes": { "type": "string" }
+      },
+      "required": ["id", "studentName", "parentName", "phone", "studentClass", "schoolName", "board", "previousScore", "familyIncome", "courseOfInterest", "calculatedConcession", "submittedAt", "status"]
+    },
+    "doubt": {
+      "title": "Student Academic Doubt",
+      "description": "Academic doubt ticket submitted by student.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentUid": { "type": "string" },
+        "studentName": { "type": "string" },
+        "questionText": { "type": "string" },
+        "subject": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "submittedAt": { "type": "string" },
+        "status": { "type": "string" },
+        "teacherResponse": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "respondedAt": { "type": "string" },
+        "stepDetail": { "type": "array" }
+      },
+      "required": ["id", "studentUid", "studentName", "questionText", "subject", "studentClass", "submittedAt", "status"]
+    },
+    "policy": {
+      "title": "Legal Policy",
+      "description": "Customizable legal policy for CMS synchronization.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "title": { "type": "string" },
+        "category": { "type": "string" },
+        "lastUpdated": { "type": "string" },
+        "summary": { "type": "string" },
+        "iconName": { "type": "string" },
+        "clausesJson": { "type": "string" }
+      },
+      "required": ["id", "title", "category", "lastUpdated", "summary", "iconName", "clausesJson"]
+    },
+    "portal_user": {
+      "title": "Portal User Account",
+      "description": "Details of the custom student, teacher, editor, backend, accountant, or HR accounts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "password": { "type": "string" },
+        "role": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "stream": { "type": "string" },
+        "isPaid": { "type": "boolean" },
+        "rollNumber": { "type": "string" },
+        "referralCode": { "type": "string" },
+        "referredBy": { "type": "string" },
+        "referralCount": { "type": "number" },
+        "referralRewards": { "type": "number" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "name", "password", "role", "createdAt"]
+    },
+    "counter": {
+      "title": "Global Counter",
+      "description": "A global numeric counter for generating incremental sequences.",
+      "type": "object",
+      "properties": {
+        "currentValue": { "type": "number" }
+      },
+      "required": ["currentValue"]
+    },
+    "newsletter": {
+      "title": "Newsletter Signup",
+      "description": "Leads collected from the newsletter signup form.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "email": { "type": "string" },
+        "subscribedAt": { "type": "string" },
+        "source": { "type": "string" }
+      },
+      "required": ["id", "email", "subscribedAt"]
+    },
+    "concept_explanation": {
+      "title": "Concept Explanation Study Card",
+      "description": "Syllabus explanation cards generated by Gemini AI.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "topic": { "type": "string" },
+        "subject": { "type": "string" },
+        "style": { "type": "string" },
+        "explanation": { "type": "string" },
+        "analogy": { "type": "string" },
+        "keyTakeaways": { "type": "array" },
+        "quiz": { "type": "array" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentId", "topic", "subject", "explanation", "analogy", "keyTakeaways", "createdAt"]
+    },
+    "flashcard_deck": {
+      "title": "Flashcard Study Deck",
+      "description": "Flashcards generated by Gemini based on searched concepts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "topic": { "type": "string" },
+        "subject": { "type": "string" },
+        "cards": { "type": "array" },
+        "masteredCardIndexes": { "type": "array" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentId", "topic", "subject", "cards", "createdAt"]
+    },
+    "learning_topic": {
+      "title": "Learning Topic Mastery Tracker",
+      "description": "Personalized chapter and concept mastery objectives tracked by the student.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "topic": { "type": "string" },
+        "category": { "type": "string" },
+        "isCompleted": { "type": "boolean" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["studentId", "topic", "category", "isCompleted", "createdAt"]
+    },
+    "recorded_session": {
+      "title": "Recorded Class Session",
+      "description": "Recorded live lecture video/metadata compiled by the teacher.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "classId": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "subject": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "recordedAt": { "type": "string" },
+        "duration": { "type": "number" },
+        "whiteboardSnapshot": { "type": "string" },
+        "chatHistoryJson": { "type": "string" },
+        "videoDataUri": { "type": "string" }
+      },
+      "required": ["id", "classId", "teacherName", "subject", "studentClass", "recordedAt"]
+    },
+    "test_feedback": {
+      "title": "Test Question Feedback",
+      "description": "Student feedback and issue reports on test questions.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "testSubject": { "type": "string" },
+        "score": { "type": "string" },
+        "overallRating": { "type": "number" },
+        "clarityRating": { "type": "number" },
+        "relevanceRating": { "type": "number" },
+        "issueCategory": { "type": "string" },
+        "flaggedQuestions": { "type": "array" },
+        "comments": { "type": "string" },
+        "submittedAt": { "type": "string" }
+      },
+      "required": ["studentName", "testSubject", "overallRating", "submittedAt"]
+    },
+    "class_schedule": {
+      "title": "Class Schedule & Live Session",
+      "description": "Live class and lecture schedules with timestamps for real-time notification alerts.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "subject": { "type": "string" },
+        "topic": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "teacherName": { "type": "string" },
+        "startTime": { "type": "string" },
+        "endTime": { "type": "string" },
+        "platform": { "type": "string" },
+        "meetLink": { "type": "string" },
+        "status": { "type": "string" },
+        "createdAt": { "type": "string" }
+      },
+      "required": ["id", "subject", "studentClass", "teacherName", "startTime", "status"]
+    },
+    "progress_path": {
+      "title": "Progress Path Roadmap & Revisions",
+      "description": "Student progress milestones, completed assignments, and pending test revision queue.",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "studentId": { "type": "string" },
+        "studentName": { "type": "string" },
+        "studentClass": { "type": "string" },
+        "milestones": { "type": "array" },
+        "completedAssignments": { "type": "array" },
+        "pendingRevisions": { "type": "array" },
+        "updatedAt": { "type": "string" }
+      },
+      "required": ["studentId", "studentClass", "updatedAt"]
+    }
+  },
+  "firestore": {
+    "users/{userId}": {
+      "schema": "user",
+      "description": "Core registered user profiles"
+    },
+    "enquiries/{enquiryId}": {
+      "schema": "enquiry",
+      "description": "Admission and course information enquiries"
+    },
+    "scholarships/{scholarshipId}": {
+      "schema": "scholarship",
+      "description": "Scholarship submissions"
+    },
+    "doubts/{doubtId}": {
+      "schema": "doubt",
+      "description": "Academic doubt resolutions"
+    },
+    "policies/{policyId}": {
+      "schema": "policy",
+      "description": "Dynamic legal policy list"
+    },
+    "portal_users/{userId}": {
+      "schema": "portal_user",
+      "description": "Custom portal accounts with password credentials"
+    },
+    "counters/{counterId}": {
+      "schema": "counter",
+      "description": "Global counters for sequential roll number generation"
+    },
+    "newsletters/{newsletterId}": {
+      "schema": "newsletter",
+      "description": "Leads collected from newsletter signup"
+    },
+    "concept_explanations/{explanationId}": {
+      "schema": "concept_explanation",
+      "description": "AI-generated topic explanations"
+    },
+    "flashcard_decks/{deckId}": {
+      "schema": "flashcard_deck",
+      "description": "AI-generated student study flashcard decks"
+    },
+    "learning_topics/{topicId}": {
+      "schema": "learning_topic",
+      "description": "Student checklist of personalized learning topics"
+    },
+    "recorded_sessions/{sessionId}": {
+      "schema": "recorded_session",
+      "description": "Recorded live sessions from instructors"
+    },
+    "test_feedbacks/{feedbackId}": {
+      "schema": "test_feedback",
+      "description": "Student feedback and issue reports on test questions"
+    },
+    "class_schedules/{scheduleId}": {
+      "schema": "class_schedule",
+      "description": "Real-time class schedules and upcoming live sessions"
+    },
+    "progress_path/{docId}": {
+      "schema": "progress_path",
+      "description": "Student progress path milestones, completed assignments, and pending test revision queue"
+    }
+  }
+}

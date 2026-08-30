@@ -1,0 +1,6 @@
+{
+  "name": "Concept Made Easy Classes",
+  "description": "Premium online concept-based tuition and personalized mentorship for Classes 6-12, JEE & NEET.",
+  "requestFramePermissions": ["camera", "microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

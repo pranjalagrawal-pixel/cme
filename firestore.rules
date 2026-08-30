@@ -1,0 +1,149 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Global default-deny safety net
+    match /{document=**} {
+      allow read, write: if false;
+    }
+
+    // Global Helper functions
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(userId) {
+      return isSignedIn() && request.auth.uid == userId;
+    }
+
+    function isFounder() {
+      return isSignedIn() && (
+        request.auth.token.email == 'pranjalagrawal576@gmail.com' ||
+        request.auth.token.email == 'hr.conceptmadeeasyclasses@gmail.com'
+      );
+    }
+
+    function isAdmin() {
+      return isSignedIn() && (
+        isFounder() ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) &&
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin')
+      );
+    }
+
+    function isTeacher() {
+      return isSignedIn() && (
+        isAdmin() ||
+        (exists(/databases/$(database)/documents/users/$(request.auth.uid)) && 
+         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'teacher')
+      );
+    }
+
+    // Collection: Users
+    match /users/{userId} {
+      allow read: if isAdmin() || isOwner(userId);
+      allow create: if isOwner(userId) || isAdmin();
+      allow update: if isFounder() || (isAdmin() && request.resource.data.role == resource.data.role) || (isOwner(userId) && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    // Collection: Enquiries
+    match /enquiries/{enquiryId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Collection: Scholarships
+    match /scholarships/{scholarshipId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Collection: Doubts
+    match /doubts/{doubtId} {
+      allow create: if isSignedIn() && request.resource.data.studentUid == request.auth.uid;
+      allow read: if isSignedIn() && (resource.data.studentUid == request.auth.uid || isTeacher());
+      allow update: if isSignedIn() && (resource.data.studentUid == request.auth.uid || isTeacher());
+      allow delete: if isAdmin();
+    }
+
+    // Collection: Policies (CMS Dynamic Collection)
+    match /policies/{policyId} {
+      allow read: if true;
+      allow write, update, delete: if isAdmin();
+    }
+
+    // Collection: Portal Users
+    match /portal_users/{userId} {
+      allow read, write: if isOwner(userId) || isAdmin() || isTeacher();
+    }
+
+    // Collection: Counters
+    // Students can advance the roll-number counter by exactly one, but cannot
+    // arbitrarily rewrite or reset it.
+    match /counters/{counterId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && (request.resource.data.currentValue == 1 || request.resource.data.currentValue == 2);
+      allow update: if isSignedIn() &&
+        request.resource.data.currentValue == resource.data.currentValue + 1;
+      allow delete: if isAdmin();
+    }
+
+    // Collection: Newsletters
+    match /newsletters/{newsletterId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Collection: Concept Explanations
+    match /concept_explanations/{explanationId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isSignedIn() && (resource.data.studentId == request.auth.uid || isAdmin());
+    }
+
+    // Collection: Flashcard Decks
+    match /flashcard_decks/{deckId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isSignedIn() && (resource.data.studentId == request.auth.uid || isAdmin());
+    }
+
+    // Collection: Learning Topics
+    match /learning_topics/{topicId} {
+      allow create: if isSignedIn();
+      allow read, update, delete: if isSignedIn() && (resource.data.studentId == request.auth.uid || isAdmin());
+    }
+
+    // Collection: Recorded Sessions
+    match /recorded_sessions/{sessionId} {
+      allow read: if isSignedIn();
+      allow create, update: if isTeacher() || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    // Collection: Career Applications
+    match /career_applications/{applicationId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Collection: Test Feedbacks
+    match /test_feedbacks/{feedbackId} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+
+    // Collection: Class Schedules (Live & Upcoming Lectures)
+    match /class_schedules/{scheduleId} {
+      allow read: if isSignedIn();
+      allow write, update, delete: if isTeacher() || isAdmin();
+    }
+
+    // Collection: Progress Path (Milestones, Completed Assignments, Pending Test Revisions)
+    match /progress_path/{docId} {
+      allow read: if isSignedIn() && (docId == request.auth.uid || resource.data.studentId == request.auth.uid);
+      allow create: if isSignedIn() && docId == request.auth.uid && request.resource.data.studentId == request.auth.uid;
+      allow update: if isSignedIn() && docId == request.auth.uid && request.resource.data.studentId == request.auth.uid;
+      allow delete: if isAdmin();
+    }
+  }
+}
