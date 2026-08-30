@@ -343,7 +343,7 @@ export default function Admin() {
 
   const handleAdminGoogleLogin = async () => {
     setLoginError('');
-    await loginWithGoogle('student');
+    await loginWithGoogle('admin');
   };
 
   const handleLogout = async () => {
