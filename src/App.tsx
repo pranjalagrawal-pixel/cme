@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+﻿import React, { useState } from 'react';
 import { 
   HashRouter as Router, 
   Routes, 
@@ -47,7 +47,7 @@ import { ThemeProvider } from './context/ThemeContext';
 import ThemeToggle from './components/ThemeToggle';
 import NetworkStatusIndicator from './components/NetworkStatusIndicator';
 import StartupLoadingScreen from './components/StartupLoadingScreen';
-import LaunchAnnouncementModal from './components/LaunchAnnouncementModal';
+
 
 function AppContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -86,7 +86,7 @@ function AppContent() {
     return (
       <div className="min-h-screen bg-[#F8F5ED] dark:bg-[#061F48] text-[#061F48] dark:text-[#F8F5ED] flex flex-col font-sans overflow-x-hidden transition-colors duration-300">
         <StartupLoadingScreen />
-        <LaunchAnnouncementModal />
+        
         <main className="flex-grow bg-[#F8F5ED] dark:bg-[#061F48] p-4 md:p-8">
           <StudentPortal />
         </main>
@@ -98,7 +98,7 @@ function AppContent() {
   return (
     <div className="min-h-screen bg-[#F8F5ED] dark:bg-[#061F48] text-[#061F48] dark:text-[#F8F5ED] selection:bg-[#D09515] selection:text-white flex flex-col font-sans overflow-x-hidden transition-colors duration-300">
       <StartupLoadingScreen />
-        <LaunchAnnouncementModal />
+        
         
         {/* STICKY HEADER */}
         <header className="sticky top-0 z-50 bg-[#F8F5ED]/95 dark:bg-[#061F48]/95 backdrop-blur-md border-b border-[#061F48]/10 dark:border-white/10 shadow-sm transition-all duration-300">
@@ -158,7 +158,7 @@ function AppContent() {
               >
                 <Search className="h-3.5 w-3.5 text-[#061F48]/75" />
                 <span className="hidden lg:inline">Search</span>
-                <kbd className="bg-[#061F48]/10 px-1 py-0.5 rounded font-mono text-[9px] text-[#061F48]/80 leading-none">⌘K</kbd>
+                <kbd className="bg-[#061F48]/10 px-1 py-0.5 rounded font-mono text-[9px] text-[#061F48]/80 leading-none">âŒ˜K</kbd>
               </button>
               <NotificationBell />
               {userProfile ? (
@@ -247,7 +247,7 @@ function AppContent() {
                   <Search className="h-4 w-4 text-[#061F48]/60" />
                   <span>Search Portal / Commands</span>
                 </div>
-                <kbd className="bg-[#061F48]/10 px-1.5 py-0.5 rounded font-mono text-[9px] text-[#061F48]/70 leading-none">⌘K</kbd>
+                <kbd className="bg-[#061F48]/10 px-1.5 py-0.5 rounded font-mono text-[9px] text-[#061F48]/70 leading-none">âŒ˜K</kbd>
               </button>
               <Link 
                 to="/" 
@@ -296,14 +296,14 @@ function AppContent() {
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-sm font-bold text-[#D09515] hover:bg-[#061F48]/5 transition-colors flex items-center gap-1.5"
               >
-                🎓 Student Portal / Login
+                ðŸŽ“ Student Portal / Login
               </Link>
               <Link 
                 to="/teacher-portal" 
                 onClick={() => setMobileMenuOpen(false)}
                 className="block px-3 py-2.5 rounded-lg text-sm font-bold text-[#061F48] hover:bg-[#061F48]/5 transition-colors flex items-center gap-1.5"
               >
-                👨‍🏫 Teacher Portal / Live
+                ðŸ‘¨â€ðŸ« Teacher Portal / Live
               </Link>
               {userProfile && (
                 <div className="bg-white border border-[#061F48]/10 p-3 rounded-xl flex items-center justify-between">
@@ -362,7 +362,7 @@ function AppContent() {
             <div className="space-y-6">
               <CompactLogo inverted={true} />
               <p className="text-xs text-white/70 leading-relaxed font-semibold">
-                Concept-focused learning support for Classes 6–12, board preparation, and competitive exam readiness.
+                Concept-focused learning support for Classes 6â€“12, board preparation, and competitive exam readiness.
               </p>
             </div>
 
@@ -481,7 +481,7 @@ function AppContent() {
         </div>
 
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-white/60 font-semibold gap-4">
-            <p>© 2026 Concept Made Easy Classes. All educational concessions subject to academic criteria verification.</p>
+            <p>Â© 2026 Concept Made Easy Classes. All educational concessions subject to academic criteria verification.</p>
             <div className="flex items-center gap-4">
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('cme_trigger_startup_screen'))}
@@ -544,3 +544,4 @@ export default function App() {
     </Router>
   );
 }
+
