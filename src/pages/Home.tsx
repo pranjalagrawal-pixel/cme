@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
   ShieldCheck, 
@@ -22,18 +22,6 @@ import { ConceptLogo } from '../components/Logos';
 export default function Home() {
   return (
     <div className="space-y-20 pb-20">
-      
-      <section className="mx-4 sm:mx-6 lg:mx-8 pt-3">
-        <div className="max-w-7xl mx-auto rounded-2xl border border-[#D09515]/25 bg-[#061F48] px-4 py-3.5 text-white shadow-md">
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-2.5 text-center">
-            <span className="inline-flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-[#D09515]">
-              <span className="h-2 w-2 rounded-full bg-[#D09515] animate-pulse" /> Official Launch • 31 August 2026 • 1:30 PM IST
-            </span>
-            <span className="hidden sm:block text-white/30">•</span>
-            <span className="text-[11px] font-semibold text-white/80">A focused digital classroom for concept-first learning.</span>
-          </div>
-        </div>
-      </section>
 
       {/* HERO SECTION */}
       <section className="relative overflow-hidden pt-8 pb-20 md:py-24 flex flex-col items-center">
@@ -54,7 +42,7 @@ export default function Home() {
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D09515]"></span>
                 </span>
                 <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#061F48] dark:text-[#F8F5ED]">
-                  Academic Session 2026–27 Admissions Active
+                  Academic Session 2026â€“27 Admissions Active
                 </span>
               </div>
 
@@ -66,7 +54,7 @@ export default function Home() {
 
               {/* Subtitle */}
               <p className="text-base sm:text-lg text-[#061F48]/80 dark:text-gray-300 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                A concept-driven learning platform for <strong className="text-[#061F48] dark:text-white font-bold">Classes 6–12</strong> and rigorous <strong className="text-[#D09515] font-bold">JEE & NEET preparation</strong>. Built to help students understand concepts clearly, practise consistently, and get academic support when they need it.
+                A concept-driven learning platform for <strong className="text-[#061F48] dark:text-white font-bold">Classes 6â€“12</strong> and rigorous <strong className="text-[#D09515] font-bold">JEE & NEET preparation</strong>. Built to help students understand concepts clearly, practise consistently, and get academic support when they need it.
               </p>
 
               {/* Trust Pillars Grid */}
@@ -103,7 +91,7 @@ export default function Home() {
                 </Link>
               </div>
 
-              {/* Brand-aligned trust signals — no fabricated numbers */}
+              {/* Brand-aligned trust signals â€” no fabricated numbers */}
               <div className="pt-6 border-t border-[#061F48]/10 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto lg:mx-0">
                 {[
                   { title: 'Small Batches', text: 'Focused classroom attention' },
@@ -144,7 +132,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center md:text-left">
             <div className="flex items-center justify-center md:justify-start gap-3">
               <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
-              <span className="text-xs font-bold tracking-wide">Classes 6–12</span>
+              <span className="text-xs font-bold tracking-wide">Classes 6â€“12</span>
             </div>
             <div className="flex items-center justify-center md:justify-start gap-3">
               <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
@@ -255,20 +243,20 @@ export default function Home() {
                 <span className="text-[10px] font-black text-rose-700 dark:text-rose-400 bg-rose-100 dark:bg-rose-900/50 px-2 py-0.5 rounded-full uppercase">Standard Coaching</span>
                 <h4 className="text-sm font-bold text-rose-950 dark:text-rose-200">Rote Memorization</h4>
                 <ul className="text-[11px] text-rose-800/80 dark:text-rose-300 font-medium space-y-1">
-                  <li>• Bulky 500-page modules</li>
-                  <li>• Panic in unfamiliar questions</li>
-                  <li>• Large-group formats can limit individual interaction</li>
-                  <li>• Slow doubt resolution</li>
+                  <li>â€¢ Bulky 500-page modules</li>
+                  <li>â€¢ Panic in unfamiliar questions</li>
+                  <li>â€¢ Large-group formats can limit individual interaction</li>
+                  <li>â€¢ Slow doubt resolution</li>
                 </ul>
               </div>
               <div className="bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200/50 dark:border-emerald-900/40 p-5 rounded-2xl space-y-2">
                 <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 rounded-full uppercase">Concept Made Easy</span>
                 <h4 className="text-sm font-bold text-emerald-950 dark:text-emerald-200">First-Principles Mastery</h4>
                 <ul className="text-[11px] text-emerald-800/80 dark:text-emerald-300 font-medium space-y-1">
-                  <li>• Proof-based derivations</li>
-                  <li>• Calm systematic problem solve</li>
-                  <li>• Focused teaching with room for questions</li>
-                  <li>• Guided doubt support</li>
+                  <li>â€¢ Proof-based derivations</li>
+                  <li>â€¢ Calm systematic problem solve</li>
+                  <li>â€¢ Focused teaching with room for questions</li>
+                  <li>â€¢ Guided doubt support</li>
                 </ul>
               </div>
             </div>
@@ -305,7 +293,7 @@ export default function Home() {
             <div className="bg-white dark:bg-[#0A1E4A] rounded-3xl border border-[#061F48]/10 dark:border-white/10 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between">
               <div>
                 <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full text-white bg-[#061F48] inline-block mb-4">Board Prep</span>
-                <h3 className="text-xl font-bold text-[#061F48] dark:text-white">Classes 9–10 Board Mastery</h3>
+                <h3 className="text-xl font-bold text-[#061F48] dark:text-white">Classes 9â€“10 Board Mastery</h3>
                 <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-semibold mt-1">Foundation concepts for board exam preparedness</p>
                 <div className="mt-4 space-y-2 border-t border-[#061F48]/5 dark:border-white/5 pt-4">
                   <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
@@ -464,4 +452,5 @@ export default function Home() {
     </div>
   );
 }
+
 
