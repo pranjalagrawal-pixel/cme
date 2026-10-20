@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+﻿import React, { useEffect, useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { X, Sparkles, GraduationCap, ArrowRight, CalendarDays, CheckCircle2, Clock3 } from 'lucide-react';
 import { CME_LAUNCH_AT, CME_LAUNCH_DATE_LABEL, CME_LAUNCH_TIME_LABEL } from '../lib/launchConfig';
@@ -76,22 +76,22 @@ export default function LaunchAnnouncementModal() {
                   <div className="relative z-10 overflow-hidden rounded-[1.55rem] border border-[#D09515]/25 bg-[#F8F5ED] p-4 sm:p-6">
                     <img src="/cme-logo.jpg" alt="Concept Made Easy Classes logo" className="h-auto w-full rounded-[1.1rem] object-contain mix-blend-multiply" />
                   </div>
-                  <div className="relative z-10 mt-4 text-center text-[10px] font-black uppercase tracking-[.22em] text-[#F2C24B]">Understand • Learn • Succeed</div>
+                  <div className="relative z-10 mt-4 text-center text-[10px] font-black uppercase tracking-[.22em] text-[#F2C24B]">Understand â€¢ Learn â€¢ Succeed</div>
                 </motion.div>
               </div>
 
               <div className="text-center md:text-left">
                 <motion.div initial={{ scale: .8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: .15 }} className="inline-flex items-center gap-2 rounded-full border border-[#D09515]/30 bg-[#D09515]/10 px-4 py-2 text-[10px] font-black tracking-[.22em] text-[#9A6900]"><Sparkles className="h-3.5 w-3.5" /> {status}</motion.div>
-                <h2 className="mt-5 text-3xl sm:text-5xl font-black tracking-tight leading-[1.05] text-[#061F48]">Concept Made Easy<br /><span className="text-[#D09515]">Officially Launches.</span></h2>
-                <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#061F48]/65 font-medium">A new learning experience built around one promise: <strong className="text-[#061F48]">Understand • Learn • Succeed.</strong></p>
+                <h2 className="mt-5 text-3xl sm:text-5xl font-black tracking-tight leading-[1.05] text-[#061F48]">Concept Made Easy<br /><span className="text-[#D09515]">We are Now Live!</span></h2>
+                <p className="mt-4 text-sm sm:text-base leading-relaxed text-[#061F48]/65 font-medium">Our learning platform is live. Start your learning journey with one promise: <strong className="text-[#061F48]">Understand â€¢ Learn â€¢ Succeed.</strong></p>
 
                 <div className="mt-5 inline-flex items-center gap-2 rounded-2xl border border-[#D09515]/30 bg-white/75 px-4 py-3 shadow-sm"><CalendarDays className="h-5 w-5 text-[#D09515]" /><div><div className="text-[9px] font-black uppercase tracking-widest text-[#061F48]/40">Official Launch Date</div><div className="text-lg font-black text-[#061F48]">{CME_LAUNCH_DATE_LABEL}</div></div></div><div className="inline-flex items-center gap-2 rounded-2xl border border-[#061F48]/10 bg-white/75 px-4 py-3 shadow-sm"><Clock3 className="h-5 w-5 text-[#D09515]" /><div><div className="text-[9px] font-black uppercase tracking-widest text-[#061F48]/40">Official Launch Time</div><div className="text-lg font-black text-[#061F48]">{CME_LAUNCH_TIME_LABEL}</div></div></div>
 
                 {!countdown.live ? <div className="mt-6 grid max-w-xl grid-cols-4 gap-2 sm:gap-3">{[['Days', countdown.days], ['Hours', countdown.hours], ['Minutes', countdown.minutes], ['Seconds', countdown.seconds]].map(([label, value]) => <div key={label} className="rounded-2xl border border-[#061F48]/10 bg-white/65 px-2 py-3 sm:px-4 sm:py-4 text-center shadow-sm"><div className="text-xl sm:text-3xl font-black tabular-nums">{String(value).padStart(2, '0')}</div><div className="mt-1 text-[8px] sm:text-[10px] font-black uppercase tracking-widest text-[#061F48]/40">{label}</div></div>)}</div> : <div className="mt-6 flex max-w-xl items-center justify-center gap-2 rounded-2xl border border-emerald-700/20 bg-emerald-50 px-5 py-4 text-emerald-800 font-black uppercase tracking-widest text-sm"><CheckCircle2 className="h-5 w-5" /> Official launch is live</div>}
 
-                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 text-left">{['Classes 6–12', 'Boards & School Support', 'JEE • NEET Preparation'].map((item) => <div key={item} className="flex items-center gap-2 rounded-xl border border-[#061F48]/8 bg-white/55 px-3 py-3 text-[10px] sm:text-[11px] font-bold text-[#061F48]/70"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#D09515]" /> {item}</div>)}</div>
+                <div className="mt-6 grid grid-cols-1 sm:grid-cols-3 gap-2 text-left">{['Classes 6â€“12', 'Boards & School Support', 'JEE â€¢ NEET Preparation'].map((item) => <div key={item} className="flex items-center gap-2 rounded-xl border border-[#061F48]/8 bg-white/55 px-3 py-3 text-[10px] sm:text-[11px] font-bold text-[#061F48]/70"><CheckCircle2 className="h-4 w-4 shrink-0 text-[#D09515]" /> {item}</div>)}</div>
                 <div className="mt-7 flex flex-col sm:flex-row items-center justify-center md:justify-start gap-3"><a href="#/programs" onClick={close} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full bg-[#061F48] px-6 py-3 text-xs font-black uppercase tracking-wider text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#D09515]">Explore Programs <ArrowRight className="h-4 w-4" /></a><button onClick={close} className="w-full sm:w-auto inline-flex items-center justify-center gap-2 rounded-full border border-[#061F48]/12 bg-white/60 px-6 py-3 text-xs font-black uppercase tracking-wider text-[#061F48] transition hover:bg-white"><GraduationCap className="h-4 w-4 text-[#D09515]" /> Continue</button></div>
-                <div className="mt-6 flex items-center justify-center md:justify-start gap-2 text-[9px] font-bold uppercase tracking-[.18em] text-[#061F48]/35">UNDERSTAND <span className="text-[#D09515]">•</span> LEARN <span className="text-[#D09515]">•</span> SUCCEED</div>
+                <div className="mt-6 flex items-center justify-center md:justify-start gap-2 text-[9px] font-bold uppercase tracking-[.18em] text-[#061F48]/35">UNDERSTAND <span className="text-[#D09515]">â€¢</span> LEARN <span className="text-[#D09515]">â€¢</span> SUCCEED</div>
               </div>
             </div>
           </motion.div>
@@ -100,3 +100,4 @@ export default function LaunchAnnouncementModal() {
     </AnimatePresence>
   );
 }
+
