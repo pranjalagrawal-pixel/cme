@@ -1,456 +1,308 @@
-﻿import React from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { 
-  ShieldCheck, 
-  Star, 
-  Award, 
-  ArrowRight, 
-  Sparkles, 
-  GraduationCap, 
-  BookOpen, 
-  CheckCircle,
-  Users,
-  Clock,
-  HelpCircle,
+import {
+  ArrowRight,
+  BookOpen,
+  Brain,
   CheckCircle2,
-  TrendingUp,
+  ChevronRight,
+  GraduationCap,
+  HeartHandshake,
+  Lightbulb,
+  Sparkles,
   Target,
-  BadgeCheck
+  Trophy,
+  Users,
+  ClipboardCheck,
+  Compass,
 } from 'lucide-react';
 import { ConceptLogo } from '../components/Logos';
 
+const learningPaths = [
+  {
+    eyebrow: 'SCHOOL LEARNING',
+    title: 'Classes 6–10',
+    description: 'Build strong foundations, understand the “why”, and prepare with confidence for school assessments.',
+    tags: ['Concept clarity', 'School subjects', 'Practice'],
+    href: '/programs',
+    tone: 'cream',
+    icon: BookOpen,
+  },
+  {
+    eyebrow: 'SENIOR SECONDARY',
+    title: 'Classes 11–12',
+    description: 'Strengthen subject fundamentals and develop a steady, structured approach to exam preparation.',
+    tags: ['Subject mastery', 'Revision', 'Problem solving'],
+    href: '/programs',
+    tone: 'blue',
+    icon: GraduationCap,
+  },
+  {
+    eyebrow: 'ENTRANCE PREPARATION',
+    title: 'JEE & NEET',
+    description: 'Prepare through concept-led study, purposeful practice, and test-focused learning support.',
+    tags: ['JEE', 'NEET', 'Test practice'],
+    href: '/test-series',
+    tone: 'gold',
+    icon: Target,
+  },
+];
+
+const principles = [
+  {
+    icon: Lightbulb,
+    title: 'Understand first',
+    description: 'Make room for clear explanations and the reasoning behind each concept—not just memorisation.',
+  },
+  {
+    icon: ClipboardCheck,
+    title: 'Practise with purpose',
+    description: 'Use questions, revision, and test practice to turn what you learn into skills you can apply.',
+  },
+  {
+    icon: HeartHandshake,
+    title: 'Get support as you learn',
+    description: 'Keep academic guidance and doubt support part of your learning journey.',
+  },
+];
+
+const tools = [
+  { icon: Brain, title: 'Study support', description: 'A focused place to continue your learning journey.', href: '/student-portal' },
+  { icon: ClipboardCheck, title: 'Test practice', description: 'Explore test-series options and exam practice.', href: '/test-series' },
+  { icon: Sparkles, title: 'Scholarship information', description: 'Review the available scholarship and fee-concession process.', href: '/scholarship' },
+  { icon: Compass, title: 'Find your programme', description: 'Explore learning options that fit your academic stage.', href: '/programs' },
+];
+
 export default function Home() {
   return (
-    <div className="space-y-20 pb-20">
+    <main className="overflow-hidden bg-[#FBFAF7] text-[#10264A] dark:bg-[#06152F] dark:text-white">
+      {/* Hero */}
+      <section className="relative isolate">
+        <div aria-hidden="true" className="pointer-events-none absolute -right-24 -top-28 h-80 w-80 rounded-full bg-[#D7A52A]/15 blur-3xl" />
+        <div aria-hidden="true" className="pointer-events-none absolute -left-28 bottom-0 h-72 w-72 rounded-full bg-blue-200/25 blur-3xl dark:bg-blue-500/10" />
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden pt-8 pb-20 md:py-24 flex flex-col items-center">
-        {/* Subtle Decorative Background Circles */}
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#D09515] opacity-[0.035] rounded-full blur-3xl -mr-28 -mt-28 pointer-events-none"></div>
-        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-[#061F48] opacity-[0.03] rounded-full blur-3xl -ml-28 -mb-28 pointer-events-none"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
-            {/* Left Content Column */}
-            <div className="lg:col-span-7 space-y-7 text-center lg:text-left animate-fade-in">
-              
-              {/* Institutional Quality Accreditation Badge */}
-              <div className="inline-flex items-center space-x-2.5 bg-white dark:bg-[#0A1E4A] border border-[#061F48]/10 dark:border-white/10 px-4 py-1.5 rounded-full shadow-sm">
-                <span className="flex h-2 w-2 relative">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#D09515] opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-[#D09515]"></span>
-                </span>
-                <span className="text-[11px] font-extrabold uppercase tracking-widest text-[#061F48] dark:text-[#F8F5ED]">
-                  Academic Session 2026â€“27 Admissions Active
-                </span>
-              </div>
-
-              {/* Headline */}
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-black text-[#061F48] dark:text-white tracking-tight leading-[1.1]">
-                Understand.<br />
-                <span className="text-[#D09515]">Learn.</span> Succeed.
-              </h1>
-
-              {/* Subtitle */}
-              <p className="text-base sm:text-lg text-[#061F48]/80 dark:text-gray-300 font-medium max-w-2xl mx-auto lg:mx-0 leading-relaxed">
-                A concept-driven learning platform for <strong className="text-[#061F48] dark:text-white font-bold">Classes 6â€“12</strong> and rigorous <strong className="text-[#D09515] font-bold">JEE & NEET preparation</strong>. Built to help students understand concepts clearly, practise consistently, and get academic support when they need it.
-              </p>
-
-              {/* Trust Pillars Grid */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3.5 pt-2 max-w-xl mx-auto lg:mx-0 text-left">
-                {[
-                  { icon: BookOpen, title: 'Concept First', text: 'Clear explanations' },
-                  { icon: Target, title: 'Focused Practice', text: 'Structured revision' },
-                  { icon: ShieldCheck, title: 'Student Support', text: 'Help when needed' },
-                ].map(({ icon: Icon, title, text }) => (
-                  <div key={title} className="flex items-center space-x-2.5 bg-white dark:bg-[#0A1E4A] p-3.5 rounded-2xl border border-[#061F48]/10 dark:border-white/10 shadow-sm">
-                    <Icon className="h-5 w-5 text-[#D09515] shrink-0" />
-                    <div>
-                      <p className="text-xs font-bold text-[#061F48] dark:text-white leading-tight">{title}</p>
-                      <p className="text-[10px] text-gray-500 font-medium">{text}</p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Hero Action Buttons */}
-              <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-3">
-                <Link 
-                  to="/programs" 
-                  className="w-full sm:w-auto bg-[#061F48] text-white hover:bg-[#D09515] hover:text-[#061F48] px-8 py-4 rounded-xl text-xs font-black tracking-widest uppercase text-center shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-200"
-                >
-                  Explore Academic Programs
-                </Link>
-                <Link 
-                  to="/scholarship" 
-                  className="w-full sm:w-auto bg-white dark:bg-[#0A1E4A] text-[#061F48] dark:text-white hover:border-[#D09515] border border-[#061F48]/20 dark:border-white/20 px-8 py-4 rounded-xl text-xs font-black tracking-widest uppercase text-center shadow-sm hover:shadow-md transform hover:-translate-y-0.5 transition-all duration-200 flex items-center justify-center gap-2"
-                >
-                  <Sparkles className="h-4 w-4 text-[#D09515]" />
-                  Scholarship Calculator
-                </Link>
-              </div>
-
-              {/* Brand-aligned trust signals â€” no fabricated numbers */}
-              <div className="pt-6 border-t border-[#061F48]/10 dark:border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3 max-w-2xl mx-auto lg:mx-0">
-                {[
-                  { title: 'Small Batches', text: 'Focused classroom attention' },
-                  { title: 'Concept First', text: 'Understand before memorising' },
-                  { title: 'Live Support', text: 'Doubts + academic guidance' },
-                ].map((item) => (
-                  <div key={item.title} className="rounded-2xl border border-[#061F48]/10 dark:border-white/10 bg-white/70 dark:bg-[#0A1E4A]/80 px-4 py-3 shadow-sm">
-                    <p className="text-xs font-black text-[#061F48] dark:text-white">{item.title}</p>
-                    <p className="mt-0.5 text-[10px] font-medium text-[#061F48]/55 dark:text-gray-400">{item.text}</p>
-                  </div>
-                ))}
-              </div>
-
+        <div className="relative mx-auto grid max-w-7xl items-center gap-12 px-5 pb-16 pt-14 sm:px-8 sm:pb-20 sm:pt-20 lg:grid-cols-[1.05fr_0.95fr] lg:gap-16 lg:px-10 lg:pb-24 lg:pt-24">
+          <div className="relative z-10">
+            <div className="mb-7 inline-flex items-center gap-2 rounded-full border border-[#D7A52A]/35 bg-white/80 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-[#10264A] shadow-sm dark:border-white/10 dark:bg-white/5 dark:text-[#F3D68A]">
+              <span className="h-2 w-2 rounded-full bg-[#D7A52A]" />
+              Learning built around understanding
             </div>
 
-            {/* Right Media Column - Scalable Premium Logo Illustration */}
-            <div className="lg:col-span-5 flex justify-center">
-              <div className="relative bg-white dark:bg-[#0A1E4A] border border-[#0B2046]/10 dark:border-white/10 p-6 sm:p-10 rounded-[2.5rem] shadow-xl max-w-sm w-full transform hover:scale-[1.01] transition-all duration-300">
-                <ConceptLogo className="h-full w-full max-h-[340px] mx-auto filter drop-shadow-sm" />
-                <div className="absolute -bottom-4 -left-4 bg-[#0B2046] text-white p-3.5 rounded-2xl shadow-lg border border-white/10 hidden sm:block">
-                  <p className="text-[9px] font-bold text-[#D09515] uppercase tracking-widest leading-none">TEACHING PHILOSOPHY</p>
-                  <p className="text-xs font-black mt-1 leading-none">Concept-first learning</p>
-                </div>
-                <div className="absolute -top-4 -right-4 bg-[#D09515] text-[#061F48] p-3 rounded-2xl shadow-lg border border-white/20 hidden sm:block">
-                  <p className="text-[9px] font-black uppercase tracking-widest leading-none">FEE CONCESSION</p>
-                  <p className="text-xs font-black mt-1 leading-none">Up to 50% Merit Grant</p>
-                </div>
-              </div>
-            </div>
+            <h1 className="max-w-3xl text-4xl font-black leading-[1.06] tracking-[-0.045em] sm:text-5xl md:text-6xl xl:text-[4.35rem]">
+              Learn the concept.
+              <span className="mt-1 block text-[#B98516] dark:text-[#E9C66E]">Own the outcome.</span>
+            </h1>
 
-          </div>
-        </div>
-      </section>
-
-      {/* INSTITUTIONAL TRUST BAR */}
-      <section className="bg-[#061F48] text-white py-6 border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center md:text-left">
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
-              <span className="text-xs font-bold tracking-wide">Classes 6â€“12</span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
-              <span className="text-xs font-bold tracking-wide">JEE & NEET Preparation</span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
-              <span className="text-xs font-bold tracking-wide">JEE / NEET CBT Mock Engine</span>
-            </div>
-            <div className="flex items-center justify-center md:justify-start gap-3">
-              <CheckCircle2 className="h-5 w-5 text-[#D09515] shrink-0" />
-              <span className="text-xs font-bold tracking-wide">Live Doubt Support</span>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* CORE USPs BENTO GRID SUMMARY */}
-      <section className="py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto space-y-3 mb-14">
-            <span className="text-xs font-extrabold uppercase text-[#D09515] tracking-widest block">Pedagogical Framework</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#061F48] dark:text-white tracking-tight">Designed for Academic Dominance</h2>
-            <p className="text-xs sm:text-sm text-[#061F48]/70 dark:text-gray-300 font-semibold leading-relaxed">
-              We combine clear explanations, structured practice, and focused academic support in one learning space.
+            <p className="mt-6 max-w-2xl text-base leading-7 text-[#52617A] dark:text-slate-300 sm:text-lg sm:leading-8">
+              Concept Made Easy Classes helps students build understanding, practise with purpose, and move forward with greater confidence—from school learning to JEE and NEET preparation.
             </p>
-          </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white dark:bg-[#0A1E4A] border border-[#061F48]/10 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-all">
-              <div className="h-12 w-12 bg-[#061F48] text-[#D09515] rounded-2xl flex items-center justify-center">
-                <GraduationCap className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold text-[#061F48] dark:text-white">Focused Academic Support</h3>
-              <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-medium leading-relaxed">
-                Students can use structured learning tools and seek academic support based on their goals and schedule.
-              </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                to="/programs"
+                className="group inline-flex min-h-14 items-center justify-center gap-3 rounded-2xl bg-[#10264A] px-7 py-4 text-sm font-extrabold text-white shadow-[0_12px_30px_rgba(16,38,74,0.18)] transition hover:-translate-y-0.5 hover:bg-[#1A396B] focus:outline-none focus:ring-4 focus:ring-[#D7A52A]/30 dark:bg-[#E8C66D] dark:text-[#10264A] dark:hover:bg-[#F1D88F]"
+              >
+                Explore learning programmes
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+              </Link>
+              <Link
+                to="/about"
+                className="inline-flex min-h-14 items-center justify-center gap-2 rounded-2xl border border-[#10264A]/15 bg-white/75 px-7 py-4 text-sm font-extrabold text-[#10264A] transition hover:border-[#D7A52A] hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#D7A52A]/20 dark:border-white/15 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+              >
+                Get to know CME
+                <ChevronRight className="h-4 w-4" />
+              </Link>
             </div>
 
-            <div className="bg-white dark:bg-[#0A1E4A] border border-[#061F48]/10 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-all">
-              <div className="h-12 w-12 bg-[#061F48] text-[#D09515] rounded-2xl flex items-center justify-center">
-                <BookOpen className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold text-[#061F48] dark:text-white">High-Yield Study Cards</h3>
-              <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-medium leading-relaxed">
-                Fully personalized formula sheets, summary booklets, NCERT concept maps, and rank-prediction tools. Eliminating bulky books for precision drills.
-              </p>
-            </div>
-
-            <div className="bg-white dark:bg-[#0A1E4A] border border-[#061F48]/10 dark:border-white/10 p-8 rounded-3xl space-y-4 shadow-sm hover:shadow-md transition-all">
-              <div className="h-12 w-12 bg-[#061F48] text-[#D09515] rounded-2xl flex items-center justify-center">
-                <Users className="h-6 w-6" />
-              </div>
-              <h3 className="text-xl font-bold text-[#061F48] dark:text-white">Focused Learning Groups</h3>
-              <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-medium leading-relaxed">
-                Classroom formats can be organized around focused teaching and meaningful student participation.
-              </p>
+            <div className="mt-9 flex flex-wrap gap-x-6 gap-y-3 border-t border-[#10264A]/10 pt-6 text-sm font-semibold text-[#52617A] dark:border-white/10 dark:text-slate-300">
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#B98516]" /> Concept-first learning</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#B98516]" /> Practice-led progress</span>
+              <span className="inline-flex items-center gap-2"><CheckCircle2 className="h-4 w-4 text-[#B98516]" /> Student-focused support</span>
             </div>
           </div>
 
-          <div className="text-center pt-10">
-            <Link to="/about" className="text-xs font-extrabold text-[#061F48] dark:text-[#F8F5ED] hover:text-[#D09515] inline-flex items-center justify-center gap-2 tracking-wider uppercase group">
-              Explore Our Teaching Methodology & Faculty
-              <ArrowRight className="h-4 w-4 transform group-hover:translate-x-1 transition-transform text-[#D09515]" />
+          <div className="relative mx-auto w-full max-w-xl lg:max-w-none">
+            <div aria-hidden="true" className="absolute inset-5 rounded-[2.5rem] bg-[#D7A52A]/15 blur-2xl" />
+            <div className="relative overflow-hidden rounded-[2rem] border border-white/80 bg-white p-5 shadow-[0_28px_80px_rgba(16,38,74,0.13)] dark:border-white/10 dark:bg-[#0B2043] sm:rounded-[2.5rem] sm:p-7">
+              <div className="flex items-center justify-between border-b border-[#10264A]/10 pb-4 dark:border-white/10">
+                <div>
+                  <p className="text-[10px] font-black uppercase tracking-[0.2em] text-[#B98516]">The CME approach</p>
+                  <p className="mt-1 text-lg font-extrabold text-[#10264A] dark:text-white">A clearer way to learn</p>
+                </div>
+                <div className="grid h-11 w-11 place-items-center rounded-2xl bg-[#F7EBCB] text-[#10264A] dark:bg-[#D7A52A]/15 dark:text-[#E9C66E]">
+                  <Sparkles className="h-5 w-5" />
+                </div>
+              </div>
+
+              <div className="grid min-h-[270px] place-items-center py-5 sm:min-h-[320px]">
+                <ConceptLogo className="h-auto max-h-[300px] w-full max-w-[330px] drop-shadow-sm" />
+              </div>
+
+              <div className="grid grid-cols-3 gap-2 sm:gap-3">
+                {[
+                  { n: '01', title: 'Understand', text: 'Build clarity' },
+                  { n: '02', title: 'Practise', text: 'Apply learning' },
+                  { n: '03', title: 'Progress', text: 'Keep improving' },
+                ].map((step) => (
+                  <div key={step.n} className="rounded-2xl bg-[#F7F5EF] p-3 dark:bg-white/5 sm:p-4">
+                    <span className="text-[10px] font-black tracking-widest text-[#B98516]">{step.n}</span>
+                    <p className="mt-1 text-xs font-extrabold text-[#10264A] dark:text-white sm:text-sm">{step.title}</p>
+                    <p className="mt-1 text-[10px] leading-4 text-[#65718A] dark:text-slate-400 sm:text-xs">{step.text}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div className="absolute -bottom-4 -left-2 hidden items-center gap-3 rounded-2xl border border-white/80 bg-white px-4 py-3 shadow-lg dark:border-white/10 dark:bg-[#10264A] sm:flex">
+              <div className="grid h-10 w-10 place-items-center rounded-xl bg-[#10264A] text-[#E9C66E] dark:bg-[#D7A52A]/15">
+                <BookOpen className="h-5 w-5" />
+              </div>
+              <div>
+                <p className="text-xs font-extrabold text-[#10264A] dark:text-white">Concept before memorisation</p>
+                <p className="mt-0.5 text-[11px] text-[#65718A] dark:text-slate-400">A principle for every learner</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Learning paths */}
+      <section className="border-y border-[#10264A]/8 bg-white/70 py-16 dark:border-white/10 dark:bg-white/[0.025] sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mb-10 flex flex-col gap-4 sm:mb-12 sm:flex-row sm:items-end sm:justify-between">
+            <div className="max-w-2xl">
+              <p className="text-xs font-black uppercase tracking-[0.2em] text-[#B98516]">Choose your learning path</p>
+              <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[#10264A] dark:text-white sm:text-4xl">A starting point for every stage.</h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-[#65718A] dark:text-slate-300 sm:text-base">Explore the learning options relevant to where you are today—and where you want to go next.</p>
+            </div>
+            <Link to="/programs" className="inline-flex items-center gap-2 text-sm font-extrabold text-[#10264A] transition hover:text-[#B98516] dark:text-[#E9C66E]">
+              View all programmes <ArrowRight className="h-4 w-4" />
             </Link>
           </div>
+
+          <div className="grid gap-5 lg:grid-cols-3">
+            {learningPaths.map(({ eyebrow, title, description, tags, href, tone, icon: Icon }) => (
+              <article
+                key={title}
+                className={`group relative flex h-full flex-col overflow-hidden rounded-[1.75rem] border p-6 transition duration-300 hover:-translate-y-1 hover:shadow-[0_20px_50px_rgba(16,38,74,0.10)] sm:p-7 ${
+                  tone === 'blue'
+                    ? 'border-[#10264A] bg-[#10264A] text-white'
+                    : tone === 'gold'
+                    ? 'border-[#E4C66F]/60 bg-[#F8EDCF] text-[#10264A] dark:border-[#D7A52A]/30 dark:bg-[#D7A52A]/10 dark:text-white'
+                    : 'border-[#10264A]/10 bg-[#FBFAF7] text-[#10264A] dark:border-white/10 dark:bg-[#0B2043] dark:text-white'
+                }`}
+              >
+                <div className="mb-7 flex items-start justify-between">
+                  <div className={`grid h-12 w-12 place-items-center rounded-2xl ${
+                    tone === 'blue' ? 'bg-white/10 text-[#E9C66E]' : tone === 'gold' ? 'bg-white/70 text-[#9A6B0B] dark:bg-white/10 dark:text-[#E9C66E]' : 'bg-[#10264A] text-[#E9C66E] dark:bg-[#D7A52A]/15'
+                  }`}>
+                    <Icon className="h-6 w-6" />
+                  </div>
+                  <span className={`rounded-full px-3 py-1.5 text-[9px] font-black tracking-[0.14em] ${
+                    tone === 'blue' ? 'bg-white/10 text-[#F3D68A]' : 'bg-[#D7A52A]/15 text-[#94660D] dark:text-[#E9C66E]'
+                  }`}>{eyebrow}</span>
+                </div>
+                <h3 className="text-2xl font-black tracking-tight">{title}</h3>
+                <p className={`mt-3 min-h-[72px] text-sm leading-6 ${tone === 'blue' ? 'text-white/75' : 'text-[#65718A] dark:text-slate-300'}`}>{description}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {tags.map((tag) => (
+                    <span key={tag} className={`rounded-full px-3 py-1.5 text-[10px] font-bold ${tone === 'blue' ? 'bg-white/10 text-white/85' : 'bg-[#10264A]/5 text-[#52617A] dark:bg-white/5 dark:text-slate-300'}`}>{tag}</span>
+                  ))}
+                </div>
+                <Link to={href} className={`mt-7 inline-flex items-center gap-2 border-t pt-5 text-sm font-extrabold transition group-hover:gap-3 ${
+                  tone === 'blue' ? 'border-white/15 text-[#F3D68A]' : 'border-[#10264A]/10 text-[#10264A] dark:border-white/10 dark:text-[#E9C66E]'
+                }`}>
+                  Explore this path <ArrowRight className="h-4 w-4" />
+                </Link>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* METHODOLOGY INTERACTIVE HIGHLIGHTS */}
-      <section className="py-8 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-6">
-            <span className="text-xs font-extrabold uppercase text-[#D09515] tracking-widest block">The Concept-Driven Paradigm</span>
-            <h2 className="text-3xl md:text-4xl font-extrabold text-[#061F48] dark:text-white tracking-tight">Mastering the "Why" Over Blind Memorization</h2>
-            <p className="text-xs sm:text-sm text-[#061F48]/70 dark:text-gray-300 font-semibold leading-relaxed">
-              Standard coaching relies on repetitive formula mugging. Our faculty breaks down root-level physics derivations, intuitive calculus steps, and organic chemistry reaction mechanisms.
+      {/* Method */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-5 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:items-center lg:gap-20 lg:px-10">
+          <div>
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#B98516]">The learning philosophy</p>
+            <h2 className="mt-4 text-3xl font-black leading-tight tracking-[-0.04em] text-[#10264A] dark:text-white sm:text-4xl">Good learning goes beyond the answer.</h2>
+            <p className="mt-5 text-sm leading-7 text-[#65718A] dark:text-slate-300 sm:text-base">
+              It starts with a question, grows through understanding, and becomes stronger with practice. CME’s learning philosophy puts the process—not shortcuts—at the centre.
             </p>
-            <div className="space-y-3.5">
-              <div className="flex items-start space-x-3 text-xs font-semibold text-[#061F48]/80 dark:text-gray-200">
-                <CheckCircle className="h-5 w-5 text-[#D09515] shrink-0 mt-0.5" />
-                <span>Deep structural intuition prepares learners for multi-concept JEE Advanced & NEET problems.</span>
-              </div>
-              <div className="flex items-start space-x-3 text-xs font-semibold text-[#061F48]/80 dark:text-gray-200">
-                <CheckCircle className="h-5 w-5 text-[#D09515] shrink-0 mt-0.5" />
-                <span>Comprehensive weekly progress trajectories track conceptual velocity chapter-by-chapter.</span>
-              </div>
-              <div className="flex items-start space-x-3 text-xs font-semibold text-[#061F48]/80 dark:text-gray-200">
-                <CheckCircle className="h-5 w-5 text-[#D09515] shrink-0 mt-0.5" />
-                <span>Dedicated Saturday doubt counters and Sunday mock rooms with real-time test simulations.</span>
-              </div>
-            </div>
-            <div className="pt-2">
-              <Link to="/about" className="inline-flex items-center space-x-2 bg-[#061F48] text-white hover:bg-[#D09515] hover:text-[#061F48] px-6 py-3.5 rounded-xl text-xs font-black uppercase tracking-wider transition-all">
-                <span>View Full Curriculum Specs</span>
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-            </div>
+            <Link to="/about" className="mt-7 inline-flex items-center gap-2 rounded-xl bg-[#10264A] px-5 py-3.5 text-sm font-extrabold text-white transition hover:bg-[#1A396B] dark:bg-[#E8C66D] dark:text-[#10264A]">
+              Discover our approach <ArrowRight className="h-4 w-4" />
+            </Link>
           </div>
 
-          {/* Interactive comparative visual board */}
-          <div className="bg-white dark:bg-[#0A1E4A] border border-[#061F48]/10 dark:border-white/10 p-8 rounded-3xl shadow-lg space-y-6">
-            <h3 className="text-base font-bold text-[#061F48] dark:text-white border-b border-[#061F48]/5 dark:border-white/5 pb-3">
-              Comparative Academic Matrix
-            </h3>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="bg-rose-50/70 dark:bg-rose-950/20 border border-rose-200/50 dark:border-rose-900/40 p-5 rounded-2xl space-y-2">
-                <span className="text-[10px] font-black text-rose-700 dark:text-rose-400 bg-rose-100 dark:bg-rose-900/50 px-2 py-0.5 rounded-full uppercase">Standard Coaching</span>
-                <h4 className="text-sm font-bold text-rose-950 dark:text-rose-200">Rote Memorization</h4>
-                <ul className="text-[11px] text-rose-800/80 dark:text-rose-300 font-medium space-y-1">
-                  <li>â€¢ Bulky 500-page modules</li>
-                  <li>â€¢ Panic in unfamiliar questions</li>
-                  <li>â€¢ Large-group formats can limit individual interaction</li>
-                  <li>â€¢ Slow doubt resolution</li>
-                </ul>
+          <div className="space-y-4">
+            {principles.map(({ icon: Icon, title, description }, index) => (
+              <div key={title} className="group flex gap-4 rounded-2xl border border-[#10264A]/10 bg-white p-5 transition hover:border-[#D7A52A]/50 hover:shadow-lg dark:border-white/10 dark:bg-white/[0.035] sm:gap-5 sm:p-6">
+                <div className="grid h-12 w-12 shrink-0 place-items-center rounded-2xl bg-[#F7EBCB] text-[#10264A] dark:bg-[#D7A52A]/15 dark:text-[#E9C66E]">
+                  <Icon className="h-5 w-5" />
+                </div>
+                <div className="flex-1">
+                  <div className="flex flex-wrap items-center gap-3">
+                    <h3 className="text-base font-extrabold text-[#10264A] dark:text-white sm:text-lg">{title}</h3>
+                    <span className="text-[10px] font-black tracking-widest text-[#B98516]">0{index + 1}</span>
+                  </div>
+                  <p className="mt-2 text-sm leading-6 text-[#65718A] dark:text-slate-300">{description}</p>
+                </div>
+                <ArrowRight className="mt-1 hidden h-4 w-4 shrink-0 text-[#B98516] transition group-hover:translate-x-1 sm:block" />
               </div>
-              <div className="bg-emerald-50/70 dark:bg-emerald-950/20 border border-emerald-200/50 dark:border-emerald-900/40 p-5 rounded-2xl space-y-2">
-                <span className="text-[10px] font-black text-emerald-700 dark:text-emerald-400 bg-emerald-100 dark:bg-emerald-900/50 px-2 py-0.5 rounded-full uppercase">Concept Made Easy</span>
-                <h4 className="text-sm font-bold text-emerald-950 dark:text-emerald-200">First-Principles Mastery</h4>
-                <ul className="text-[11px] text-emerald-800/80 dark:text-emerald-300 font-medium space-y-1">
-                  <li>â€¢ Proof-based derivations</li>
-                  <li>â€¢ Calm systematic problem solve</li>
-                  <li>â€¢ Focused teaching with room for questions</li>
-                  <li>â€¢ Guided doubt support</li>
-                </ul>
-              </div>
-            </div>
-            <div className="bg-[#F8F5ED] dark:bg-[#061F48] border border-[#061F48]/5 dark:border-white/5 p-4 rounded-xl text-center">
-              <p className="text-[11px] text-[#061F48]/80 dark:text-gray-300 font-bold italic">
-                "Understanding the concept first makes practice more meaningful."
-              </p>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* QUICK FEATURED BATCHES & TEST SERIES LISTINGS */}
-      <section className="py-12 bg-white/50 dark:bg-[#061F48]/50 border-y border-[#061F48]/5 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex flex-col md:flex-row md:items-end justify-between mb-12">
-            <div className="space-y-3">
-              <span className="text-xs font-extrabold uppercase text-[#D09515] tracking-widest block">Academic Cohorts</span>
-              <h2 className="text-3xl font-extrabold text-[#061F48] dark:text-white tracking-tight">Featured Tuition & Test Series</h2>
-            </div>
-            <div className="mt-4 md:mt-0 flex gap-3">
-              <Link to="/programs" className="bg-white dark:bg-[#0A1E4A] hover:bg-[#061F48]/5 text-[#061F48] dark:text-white border border-[#061F48]/10 dark:border-white/10 px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
-                All Programs
-              </Link>
-              <Link to="/test-series" className="bg-[#061F48] hover:bg-[#D09515] hover:text-[#061F48] text-white px-5 py-2.5 rounded-xl text-xs font-bold uppercase tracking-wider transition-all">
-                Test Series Portal
-              </Link>
-            </div>
+      {/* Student tools */}
+      <section className="bg-[#F1EFE8] py-16 dark:bg-[#091B38] sm:py-20">
+        <div className="mx-auto max-w-7xl px-5 sm:px-8 lg:px-10">
+          <div className="mx-auto mb-10 max-w-2xl text-center sm:mb-12">
+            <p className="text-xs font-black uppercase tracking-[0.2em] text-[#B98516]">Your next step</p>
+            <h2 className="mt-3 text-3xl font-black tracking-[-0.035em] text-[#10264A] dark:text-white sm:text-4xl">Find the support you need.</h2>
+            <p className="mt-4 text-sm leading-6 text-[#65718A] dark:text-slate-300 sm:text-base">Jump straight to a useful part of the CME learning experience.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            
-            {/* Program Card 1 */}
-            <div className="bg-white dark:bg-[#0A1E4A] rounded-3xl border border-[#061F48]/10 dark:border-white/10 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full text-white bg-[#061F48] inline-block mb-4">Board Prep</span>
-                <h3 className="text-xl font-bold text-[#061F48] dark:text-white">Classes 9â€“10 Board Mastery</h3>
-                <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-semibold mt-1">Foundation concepts for board exam preparedness</p>
-                <div className="mt-4 space-y-2 border-t border-[#061F48]/5 dark:border-white/5 pt-4">
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Comprehensive Science, Maths & English</span>
-                  </div>
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Weekly mock tests matching school formats</span>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-6 border-t border-[#061F48]/5 dark:border-white/5 mt-6 flex items-center justify-between">
-                <div>
-                  <span className="text-[9px] font-bold text-[#061F48]/55 dark:text-gray-400 uppercase block leading-none">Program details</span>
-                  <span className="text-sm font-extrabold text-[#061F48] dark:text-white">View current offering</span>
-                </div>
-                <Link to="/programs" className="text-xs font-black text-[#D09515] hover:text-[#061F48] dark:hover:text-white uppercase tracking-wider flex items-center gap-1">
-                  <span>Details</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Program Card 2 */}
-            <div className="bg-white dark:bg-[#0A1E4A] rounded-3xl border border-[#061F48]/10 dark:border-white/10 shadow-sm hover:shadow-md transition-all p-6 flex flex-col justify-between">
-              <div>
-                <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full text-[#061F48] bg-[#D09515] inline-block mb-4">Competitive</span>
-                <h3 className="text-xl font-bold text-[#061F48] dark:text-white">JEE Advanced Prep</h3>
-                <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-semibold mt-1">Target rank-booster & rigorous PCM problem solving</p>
-                <div className="mt-4 space-y-2 border-t border-[#061F48]/5 dark:border-white/5 pt-4">
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Physics kinematics to organic mechanisms</span>
-                  </div>
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Real Computer-Based Mock Simulator</span>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-6 border-t border-[#061F48]/5 dark:border-white/5 mt-6 flex items-center justify-between">
-                <div>
-                  <span className="text-[9px] font-bold text-[#061F48]/55 dark:text-gray-400 uppercase block leading-none">Program details</span>
-                  <span className="text-sm font-extrabold text-[#061F48] dark:text-white">View current offering</span>
-                </div>
-                <Link to="/programs" className="text-xs font-black text-[#D09515] hover:text-[#061F48] dark:hover:text-white uppercase tracking-wider flex items-center gap-1">
-                  <span>Details</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Program Card 3 */}
-            <div className="bg-white dark:bg-[#0A1E4A] rounded-3xl border border-[#D09515]/30 shadow-md p-6 flex flex-col justify-between ring-2 ring-[#D09515]/20 relative overflow-hidden">
-                            <div>
-                <span className="text-[10px] font-black tracking-widest uppercase px-2.5 py-1 rounded-full text-white bg-[#061F48] inline-block mb-4">Mock Series</span>
-                <h3 className="text-xl font-bold text-[#061F48] dark:text-white">JEE / NEET Test Series</h3>
-                <p className="text-xs text-[#061F48]/70 dark:text-gray-300 font-semibold mt-1">Structured exam practice and performance review</p>
-                <div className="mt-4 space-y-2 border-t border-[#061F48]/5 dark:border-white/5 pt-4">
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Full syllabus online CBT tests</span>
-                  </div>
-                  <div className="flex items-center text-xs text-[#061F48]/80 dark:text-gray-300 font-semibold gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-[#D09515]" />
-                    <span>Predictive AIR (All India Rank) engine</span>
-                  </div>
-                </div>
-              </div>
-              <div className="pt-6 border-t border-[#061F48]/5 dark:border-white/5 mt-6 flex items-center justify-between">
-                <div>
-                  <span className="text-[9px] font-bold text-[#061F48]/55 dark:text-gray-400 uppercase block leading-none">Current offering</span>
-                  <span className="text-sm font-black text-[#D09515]">View details</span>
-                </div>
-                <Link to="/test-series" className="text-xs font-black text-[#061F48] dark:text-white hover:text-[#D09515] uppercase tracking-wider flex items-center gap-1">
-                  <span>Enroll</span>
-                  <ArrowRight className="h-3.5 w-3.5" />
-                </Link>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      {/* CME STUDENT TOOLKIT */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="relative overflow-hidden rounded-[2.5rem] border border-[#061F48]/10 dark:border-white/10 bg-white dark:bg-[#0A1E4A] shadow-xl">
-          <div className="absolute -top-24 -right-24 h-64 w-64 rounded-full bg-[#D09515]/10 blur-3xl pointer-events-none" />
-          <div className="absolute -bottom-24 -left-24 h-64 w-64 rounded-full bg-[#061F48]/5 dark:bg-white/5 blur-3xl pointer-events-none" />
-          <div className="relative p-7 md:p-10">
-            <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-5 mb-8">
-              <div className="max-w-2xl">
-                <span className="text-[10px] font-black uppercase tracking-[0.22em] text-[#D09515]">Built around the learner</span>
-                <h2 className="mt-2 text-2xl md:text-3xl font-black tracking-tight text-[#061F48] dark:text-white">Everything you need to stay on track.</h2>
-                <p className="mt-2 text-sm font-medium leading-relaxed text-[#061F48]/65 dark:text-gray-300">
-                  One focused learning space for classes, practice, planning, revision and academic support.
-                </p>
-              </div>
-              <div className="inline-flex items-center gap-2 self-start rounded-full border border-[#D09515]/30 bg-[#D09515]/10 px-4 py-2 text-[10px] font-black uppercase tracking-wider text-[#061F48] dark:text-[#F8F5ED]">
-                <Sparkles className="h-3.5 w-3.5 text-[#D09515]" />
-                Concept-first experience
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-              {[
-                { icon: GraduationCap, title: 'Live Classes', text: 'Join teacher-led learning when a class is scheduled.', href: '/student-portal' },
-                { icon: Target, title: 'Study Planner', text: 'Turn your own goals into a clear daily plan.', href: '/student-portal' },
-                { icon: BookOpen, title: 'Test Practice', text: 'Use structured practice to prepare with purpose.', href: '/test-series' },
-                { icon: HelpCircle, title: 'Doubt Support', text: 'Ask questions and keep your learning moving.', href: '/student-portal' },
-              ].map(({ icon: Icon, title, text, href }) => (
-                <Link
-                  key={title}
-                  to={href}
-                  className="group rounded-2xl border border-[#061F48]/10 dark:border-white/10 bg-[#F8F5ED]/70 dark:bg-[#061F48]/50 p-5 hover:-translate-y-1 hover:border-[#D09515]/40 hover:shadow-lg transition-all duration-200"
-                >
-                  <div className="h-10 w-10 rounded-xl bg-[#061F48] text-[#D09515] flex items-center justify-center shadow-sm group-hover:bg-[#D09515] group-hover:text-[#061F48] transition-colors">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {tools.map(({ icon: Icon, title, description, href }) => (
+              <Link key={title} to={href} className="group rounded-2xl border border-[#10264A]/10 bg-white p-5 transition duration-200 hover:-translate-y-1 hover:border-[#D7A52A]/60 hover:shadow-xl dark:border-white/10 dark:bg-white/[0.04] sm:p-6">
+                <div className="flex items-center justify-between">
+                  <div className="grid h-11 w-11 place-items-center rounded-xl bg-[#10264A] text-[#E9C66E] dark:bg-[#D7A52A]/15">
                     <Icon className="h-5 w-5" />
                   </div>
-                  <h3 className="mt-4 text-sm font-black text-[#061F48] dark:text-white">{title}</h3>
-                  <p className="mt-1.5 text-xs leading-relaxed font-medium text-[#061F48]/60 dark:text-gray-400">{text}</p>
-                  <span className="mt-4 inline-flex items-center gap-1.5 text-[10px] font-black uppercase tracking-wider text-[#D09515]">
-                    Open <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-0.5 transition-transform" />
-                  </span>
-                </Link>
-              ))}
+                  <ArrowRight className="h-4 w-4 text-[#B98516] transition-transform group-hover:translate-x-1" />
+                </div>
+                <h3 className="mt-5 text-base font-extrabold text-[#10264A] dark:text-white">{title}</h3>
+                <p className="mt-2 text-sm leading-6 text-[#65718A] dark:text-slate-300">{description}</p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="px-5 py-16 sm:px-8 sm:py-24 lg:px-10">
+        <div className="relative mx-auto max-w-7xl overflow-hidden rounded-[2rem] bg-[#10264A] px-6 py-10 text-white shadow-[0_25px_70px_rgba(16,38,74,0.22)] sm:rounded-[2.5rem] sm:px-12 sm:py-14 lg:px-16">
+          <div aria-hidden="true" className="pointer-events-none absolute -right-16 -top-24 h-72 w-72 rounded-full border-[45px] border-[#D7A52A]/10" />
+          <div aria-hidden="true" className="pointer-events-none absolute -bottom-24 right-1/3 h-56 w-56 rounded-full bg-[#D7A52A]/10 blur-3xl" />
+          <div className="relative flex flex-col items-start justify-between gap-8 md:flex-row md:items-center">
+            <div className="max-w-2xl">
+              <div className="inline-flex items-center gap-2 rounded-full border border-[#E9C66E]/25 bg-white/5 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#F3D68A]">
+                <Trophy className="h-3.5 w-3.5" /> Take the next step
+              </div>
+              <h2 className="mt-5 text-3xl font-black leading-tight tracking-[-0.04em] sm:text-4xl">Your learning journey starts with one clear concept.</h2>
+              <p className="mt-4 max-w-xl text-sm leading-6 text-white/70 sm:text-base">Explore programmes, learn about CME, or review scholarship information to find the next step that works for you.</p>
+            </div>
+            <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row md:flex-col">
+              <Link to="/programs" className="inline-flex min-h-12 items-center justify-center gap-2 rounded-xl bg-[#E8C66D] px-6 py-3 text-sm font-extrabold text-[#10264A] transition hover:bg-[#F3D98E]">
+                Explore programmes <ArrowRight className="h-4 w-4" />
+              </Link>
+              <Link to="/scholarship" className="inline-flex min-h-12 items-center justify-center rounded-xl border border-white/20 px-6 py-3 text-sm font-extrabold text-white transition hover:bg-white/10">
+                Scholarship information
+              </Link>
             </div>
           </div>
         </div>
       </section>
-
-      {/* CALL TO ACTION SCHOLARSHIP SIMULATOR */}
-      <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[#061F48] text-white p-8 md:p-14 rounded-[2.5rem] relative overflow-hidden shadow-2xl flex flex-col md:flex-row items-center gap-8 justify-between border border-white/10">
-          <div className="absolute top-0 right-0 w-80 h-80 bg-[#D09515] opacity-[0.08] rounded-full blur-3xl pointer-events-none"></div>
-          <div className="space-y-3.5 max-w-xl text-center md:text-left">
-            <span className="text-xs font-extrabold text-[#D09515] tracking-[0.2em] uppercase block">Merit-Based Scholarship</span>
-            <h2 className="text-2xl md:text-3xl font-black tracking-tight leading-tight">Provisional Fee Concession Portal</h2>
-            <p className="text-xs md:text-sm text-white/80 font-medium leading-relaxed">
-              Calculate your tuition scholarship entitlement instantly! Our admissions simulator evaluates academic scores and family background to grant fee waivers up to <strong>50% Off</strong>.
-            </p>
-          </div>
-          <div className="shrink-0 w-full md:w-auto">
-            <Link 
-              to="/scholarship" 
-              className="block w-full md:w-auto text-center bg-[#D09515] text-[#061F48] hover:bg-white px-8 py-4 rounded-xl text-xs font-black tracking-widest uppercase shadow-lg transform hover:-translate-y-0.5 transition-all duration-200"
-            >
-              Launch Simulator
-            </Link>
-          </div>
-        </div>
-      </section>
-
-    </div>
+    </main>
   );
 }
-
-
